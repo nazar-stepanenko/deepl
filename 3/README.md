@@ -16,21 +16,7 @@ uv run python train.py --data "<шлях до теки з seg_train і seg_test>
 uv run python analyze.py --data "<шлях до теки з seg_train і seg_test>"
 ```
 
-### Відтворення на іншій машині
 
-Репозиторій уже містить збережені журнали (`runs/`), `split.csv` і `lab3_model.pt`, тому:
-
-```bash
-git clone <посилання на репозиторій> && cd <репозиторій>/lab3
-uv sync --frozen                                         # залежності з uv.lock
-
-# Аналіз зі збережених журналів - дає ті самі числа, що в цьому README
-uv run python analyze.py --data "<шлях до теки з seg_train і seg_test>"
-
-# Повторне навчання: у НОВУ теку, щоб не перезаписати збережені результати
-uv run python train.py --data "<шлях до теки з seg_train і seg_test>" --workdir repro
-uv run python analyze.py --data "<шлях до теки з seg_train і seg_test>" --workdir repro
-```
 
 - `train.py` у теці, де вже є `runs/`, зупиняється з повідомленням (щоб випадково не перезаписати результати); для повторного навчання використовуйте `--workdir`.
 - Під час навчання з інтернету завантажуються ваги `ResNet18_Weights.IMAGENET1K_V1` (≈ 45 МБ, один раз у кеш torch); `analyze.py` інтернету не потребує.
