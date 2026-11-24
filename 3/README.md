@@ -9,10 +9,8 @@
 Python 3.12, версії залежностей зафіксовано в `uv.lock` (torch 2.15.0, torchvision 0.29.2, numpy 2.5.5, pandas 3.1.1, scikit-learn 1.9.1, matplotlib 3.11.2, pillow 13.0.0). Шлях до локальної копії набору передається параметром `--data`: це тека, у якій лежать `seg_train` та `seg_test`.
 
 ```bash
-# 1. Навчання: поділ, перевірки пунктів 1-2, сім запусків, журнали, вибір, lab3_model.pt (test не використовується)
 uv run python train.py --data "<шлях до теки з seg_train і seg_test>"
 
-# 2. Аналіз: перевірка хешу split.csv, таблиця, криві, ефекти, перевірка вибору, test, матриця плутанини, п'ять помилок
 uv run python analyze.py --data "<шлях до теки з seg_train і seg_test>"
 ```
 
