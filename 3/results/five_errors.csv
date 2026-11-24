@@ -1,0 +1,6 @@
+Файл,Справжній клас,Передбачений клас,Імовірність передбаченого класу,Кількість таких помилок у test
+20179.jpg,glacier,mountain,0.9199,63
+20116.jpg,mountain,glacier,0.5996,33
+20353.jpg,street,buildings,0.864,31
+20752.jpg,buildings,street,0.7497,11
+20304.jpg,mountain,sea,0.7211,5

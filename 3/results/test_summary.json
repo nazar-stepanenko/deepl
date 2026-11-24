@@ -1,0 +1,10 @@
+{
+  "regime": "frozen",
+  "seed": 3,
+  "macro_f1_validation": 0.8864172614944515,
+  "macro_f1_test": 0.8892040654693513,
+  "difference_val_minus_test": -0.002786803974899721,
+  "accuracy_test": 0.8861517976031957,
+  "n_test": 1502,
+  "standard_error_accuracy": 0.008195626988597764
+}

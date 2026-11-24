@@ -1,0 +1,180 @@
+{
+  "regime": "unfreeze",
+  "seed": 1,
+  "settings": {
+    "data": {
+      "classes": [
+        "buildings",
+        "forest",
+        "glacier",
+        "mountain",
+        "sea",
+        "street"
+      ],
+      "img_size": 160,
+      "n_train": 1200,
+      "n_validation": 1498,
+      "split_csv": "split.csv"
+    },
+    "transforms": {
+      "train": [
+        "RandomResizedCrop(160, scale=(0.7, 1.0))",
+        "RandomHorizontalFlip()",
+        "ToTensor()",
+        "Normalize(mean, std)"
+      ],
+      "eval": [
+        "Resize((160, 160))",
+        "ToTensor()",
+        "Normalize(mean, std)"
+      ],
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ]
+    },
+    "model": {
+      "arch": "resnet18",
+      "weights": "ResNet18_Weights.IMAGENET1K_V1",
+      "fc": "Linear(512, 6)",
+      "total_params": 11179590,
+      "trainable_params": 8396806,
+      "dtype": "float32",
+      "bn_momentum": 0.1,
+      "bn_eps": 1e-05,
+      "trainable_modules": [
+        "layer4",
+        "fc"
+      ],
+      "eval_modules": [
+        "conv1",
+        "bn1",
+        "layer1",
+        "layer2",
+        "layer3"
+      ]
+    },
+    "optimizer": {
+      "name": "AdamW",
+      "weight_decay": 0.0001,
+      "defaults": {
+        "lr": 0.001,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0.0001,
+        "amsgrad": false,
+        "maximize": false,
+        "foreach": null,
+        "capturable": false,
+        "differentiable": false,
+        "fused": null,
+        "decoupled_weight_decay": true
+      },
+      "groups": [
+        {
+          "lr": 0.003,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0.0001,
+          "amsgrad": false,
+          "maximize": false,
+          "foreach": null,
+          "capturable": false,
+          "differentiable": false,
+          "fused": null,
+          "decoupled_weight_decay": true,
+          "n_params": 3078
+        },
+        {
+          "lr": 0.0003,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0.0001,
+          "amsgrad": false,
+          "maximize": false,
+          "foreach": null,
+          "capturable": false,
+          "differentiable": false,
+          "fused": null,
+          "decoupled_weight_decay": true,
+          "n_params": 8393728
+        }
+      ]
+    },
+    "loss": "CrossEntropyLoss(reduction=mean), без ваг класів і згладжування",
+    "loaders": {
+      "train": {
+        "batch_size": 32,
+        "shuffle": true,
+        "drop_last": false,
+        "num_workers": 0,
+        "generator": null,
+        "sampler": null
+      },
+      "eval": {
+        "batch_size": 64,
+        "shuffle": false,
+        "num_workers": 0
+      }
+    },
+    "training": {
+      "epochs": 8,
+      "steps_per_epoch": 38,
+      "total_steps": 304,
+      "last_batch_size": 16,
+      "device": "cpu",
+      "lr_schedule": null,
+      "grad_clip": null,
+      "amp": false,
+      "early_stopping": false,
+      "checkpoint_selection": false
+    }
+  },
+  "code": {
+    "commit": "unknown",
+    "uncommitted_changes": null
+  },
+  "split_csv_sha256": "d3a611aec41f6e335ab58287f10a443f3e0e35aa9adfefae662d48b15af567f9",
+  "versions": {
+    "python": "3.12.15",
+    "torch": "2.15.0+cpu",
+    "torchvision": "0.29.2+cpu"
+  },
+  "device": "CPU (AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD)",
+  "train_loss": [
+    0.5553072081009547,
+    0.16970947196086247,
+    0.13649709368745486,
+    0.13394339136158426,
+    0.13635056275874377,
+    0.0696557841077447,
+    0.08616523733362555,
+    0.0800035996735096
+  ],
+  "val_macro_f1": [
+    0.8931690261046885,
+    0.8994380653271724,
+    0.8895740472285985,
+    0.8780844733341587,
+    0.895010014164812,
+    0.8870077669272355,
+    0.890750722627497,
+    0.876547492455363
+  ],
+  "train_time_sec": 562.3925293000029
+}

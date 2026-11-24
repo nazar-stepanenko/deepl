@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+# набір даних і локальні ваги запусків (до репозиторію додається лише lab3_model.pt)
+seg_train/
+seg_test/
+seg_pred/
+runs/*/model.pt

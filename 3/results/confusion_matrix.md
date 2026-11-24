@@ -1,0 +1,8 @@
+|  | pred:buildings | pred:forest | pred:glacier | pred:mountain | pred:sea | pred:street |
+|---|---|---|---|---|---|---|
+| true:buildings | 204 | 1 | 1 | 1 | 1 | 11 |
+| true:forest | 0 | 236 | 0 | 0 | 0 | 1 |
+| true:glacier | 1 | 1 | 207 | 63 | 3 | 2 |
+| true:mountain | 1 | 0 | 33 | 224 | 5 | 0 |
+| true:sea | 3 | 1 | 4 | 5 | 242 | 0 |
+| true:street | 31 | 0 | 0 | 1 | 1 | 218 |
